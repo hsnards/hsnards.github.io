@@ -32,7 +32,7 @@ import {
 } from "@mui/material";
 import { ApexOptions } from "apexcharts";
 import { useSnackbar, SnackbarProvider } from "notistack";
-import { Download, Visibility } from "@mui/icons-material";
+import { Download, Visibility, VisibilitySharp } from "@mui/icons-material";
 import { toPng } from "html-to-image";
 
 const CoursesList = () => {
@@ -188,13 +188,13 @@ const CoursesList = () => {
           py={1}
           px={2}
         >
-          <Typography variant="h1">ترم ایناس</Typography>
+          <Typography variant="h2">ترم ایناس</Typography>
 
           <Button
             variant="outlined"
             color="inherit"
             size="small"
-            endIcon={<Visibility />}
+            endIcon={<VisibilitySharp />}
             onClick={() => setOpenModal(true)}
           >
             کد دروس انتخاب شده
@@ -274,7 +274,7 @@ const CoursesList = () => {
                   ?.includes(searchTerm?.toLowerCase())
               )
               ?.map((item, index) => (
-                <ListItem>
+                <ListItem key={item.classTime + index}>
                   <ListItemButton
                     sx={{ display: "flex", gap: 2 }}
                     onClick={() => {
